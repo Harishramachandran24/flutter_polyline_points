@@ -56,8 +56,12 @@ class NetworkUtil {
           parsedJson["routes"].isNotEmpty) {
         result.points = decodeEncodedPolyline(
             parsedJson["routes"][0]["overview_polyline"]["points"]);
-        result.waypointOrder = parsedJson["routes"][0]["waypoint_order"];
-        log(result.waypointOrder.toString());
+        List<dynamic> wpOrder =
+            parsedJson["routes"][0]["waypoint_order"] as List<dynamic>;
+        result.waypointOrder = wpOrder.map((e) {
+          print(e);
+          return e as int;
+        }).toList();
       } else {
         result.errorMessage = parsedJson["error_message"];
       }
