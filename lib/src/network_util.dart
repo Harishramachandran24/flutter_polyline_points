@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:developer';
 
 import 'package:http/http.dart' as http;
 
@@ -56,6 +57,7 @@ class NetworkUtil {
         result.points = decodeEncodedPolyline(
             parsedJson["routes"][0]["overview_polyline"]["points"]);
         result.waypointOrder = parsedJson['routes'][0]["waypoint_order"];
+        log(result.waypointOrder.toString());
       } else {
         result.errorMessage = parsedJson["error_message"];
       }
