@@ -21,6 +21,6 @@ class PolylineResult {
   PolylineResult(
       {this.status,
       this.points = const [],
-      this.errorMessage = "",
-      this.waypointOrder = const []});
+      this.waypointOrder = const [],
+      this.errorMessage = ""});
 }
